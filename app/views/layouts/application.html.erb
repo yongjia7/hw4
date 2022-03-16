@@ -13,12 +13,18 @@
     <div>
       <%= flash[:notice] %>
     </div>
-    <div>
-      <a href="/">Home</a>
-      <%#= button_to "Logout", "/sessions/logout", method: :delete %>
-      <a href="/sessions/new">Login</a>
-      <a href="/users/new">Signup</a>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div>
+        <a class="navbar-brand" href="/">Home</a>
+        <% if @current_user %>
+          <%= button_to "Logout", "/sessions/logout", method: :delete %>  
+        <% end %>
+        <% if not @current_user %>
+          <a href="/sessions/new">Login</a>
+          <a href="/users/new">Signup</a>
+        <% end %>
+      </div>
+    </nav>
 
     <%= yield %>
   </body>
