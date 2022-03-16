@@ -1,18 +1,13 @@
-<h1><%= @place.name %></h1>
+<h1>New Place</h1>
 
-<h2>My Posts</h2>
-<% for post in @place.posts %>
-  <% if @current_user && post.user_id == @current_user.id %>
-    <h3><%= post.title %></h3>
-    <h4><%= post.posted_on %></h4>
-    <p><%= post.description %></p>
-  <% end %>
+<%= form_with model: @place do |form| %>
+  <p>
+    <%= form.label "name" %>
+    <%= form.text_field "name" %>
+  </p>
+  <p>
+    <%= form.submit "Create Place" %>
+  </p>
+
+   You must first <a href="/sessions/new">login or register </a> to post.
 <% end %>
-
-<p>
-  <a href="/posts/new?place_id=<%= @place.id %>">New Post</a>
-</p>
-
-<p>
-  <a href="/places">Back to All Places</a>
-</p>
