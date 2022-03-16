@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         if @user
           if BCrypt::Password.new(@user.password) == params["password"]
             session[:user_id] = @user.id
-            flash[:notice] = "Hello. You are logged in #{@user.username}!"
+            flash[:notice] = "Welcome, #{@user.username}!"
             redirect_to "/places"
           else
             flash[:notice] = "Incorrect Password"
@@ -17,10 +17,9 @@ class SessionsController < ApplicationController
           end
           
         else 
-            flash[:notice] = "Not registered. Please register."
+            flash[:notice] = "User not found. Please register."
             redirect_to "/sessions/new"
         end
-  
     end
   
     def destroy
