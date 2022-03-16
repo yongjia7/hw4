@@ -15,5 +15,6 @@ class PostsController < ApplicationController
       flash[:notice] = "Please login"
     end
       redirect_to "/places/#{@post.place.id}"
+  end
 
 end
