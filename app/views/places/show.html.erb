@@ -1,6 +1,6 @@
 <h1><%= @place.name %></h1>
 
-<h2>My Posts</h2>
+<p><b>My Posts</b></p>
 <% for post in @place.posts %>
   <h3><%= post.title %></h3>
   <h4><%= post.posted_on %></h4>
@@ -17,5 +17,5 @@
 </p>
 
 <p>
-  <a href="/places">Back to All Places</a>
+  <a href="/places">Back to Places</a>
 </p>
