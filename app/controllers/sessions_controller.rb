@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         redirect_to "/sessions/new"
       end
     else
-      flash[:notice] = "User not found.Please register."
+      flash[:notice] = "User not found.Please Signup."
       redirect_to "/sessions/new"
     end
   end
